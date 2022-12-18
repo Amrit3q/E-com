@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/E-com/static/js/main.eb3313ce.js",
+    "static/js/787.dba80a51.chunk.js": "/E-com/static/js/787.dba80a51.chunk.js",
+    "index.html": "/E-com/index.html",
+    "main.eb3313ce.js.map": "/E-com/static/js/main.eb3313ce.js.map",
+    "787.dba80a51.chunk.js.map": "/E-com/static/js/787.dba80a51.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.eb3313ce.js"
+  ]
+}
