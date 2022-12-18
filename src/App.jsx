@@ -13,7 +13,7 @@ import {
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/E-com",
     element: <Home />,
   },
   {
