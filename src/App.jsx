@@ -39,7 +39,6 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  const user = true;
 
   return (
     <RouterProvider router={router} />
