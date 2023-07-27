@@ -6,6 +6,8 @@ import Navbar from '../components/Navbar'
 import Newsletter from '../components/Newsletter'
 import Products from '../components/Products'
 import { mobile } from '../responsive'
+import { useLocation } from 'react-router-dom'
+import { useState } from 'react'
 
 const Container = styled.div`
 
@@ -38,6 +40,18 @@ const Option = styled.option`
 `
 
 const ProductList = () => {
+    const location = useLocation();
+    const cat = location.pathname.split("/")[2];
+    const [filters, setFilters] = useState({});
+    const [sort, setSort] = useState("newest");
+    const handleFilters = (e) => {
+        const value = e.target.value;
+        setFilters({
+            ...filters,
+            [e.target.name]: value
+        });
+    };
+ 
   return (
     <Container>
         <Announcement />
@@ -46,8 +60,8 @@ const ProductList = () => {
         <FilterContainer>
             <Filter>
                 <FilterText>Filter Products:</FilterText>
-                <Select>
-                    <Option disabled selected>
+                <Select name="color" onChange={handleFilters}>
+                    <Option disabled>
                         Color
                     </Option>
                     <Option>Red</Option>
@@ -55,8 +69,8 @@ const ProductList = () => {
                     <Option>White</Option>
                     <Option>Black</Option>
                 </Select>
-                <Select>
-                    <Option disabled selected>
+                <Select name="size" onChange={handleFilters}>
+                    <Option disabled>
                         Size
                     </Option>
                     <Option>S</Option>
@@ -67,15 +81,15 @@ const ProductList = () => {
             </Filter>
             <Filter>
             <FilterText>Sort Products:</FilterText>
-            <Select>
-                <Option selected>Newest</Option>
-                <Option>Price (asc)</Option>
-                <Option>Price (desc)</Option>
+            <Select onChange={e=> setSort(e.target.value)}>
+                <Option value="newest">Newest</Option>
+                <Option value="asc">Price (asc)</Option>
+                <Option value="desc">Price (desc)</Option>
             </Select>
             </Filter>
 
         </FilterContainer>
-        <Products />
+        <Products cat={cat} filter={filters} sort={sort} />
         <Newsletter />
         <Footer />
     </Container>

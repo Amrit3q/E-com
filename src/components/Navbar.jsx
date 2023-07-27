@@ -4,6 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import {mobile} from '../responsive'
+import { Link } from 'react-router-dom';
 const Container = styled.div`
     height: 60px;
     ${mobile({ height: "50px" })}
@@ -77,13 +78,19 @@ const Navbar = () => {
                 <Logo>Trade</Logo>
             </Center>
             <Right>
+                <Link to={'/login'}>
                 <MenuItem>Sign In</MenuItem>
+                </Link>
+                <Link to={'/register'}>
                 <MenuItem>Register</MenuItem>
+                </Link>
+                <Link to= {'/cart'}>
                 <MenuItem>
                     <Badge badgeContent={4} color="primary">
                         <ShoppingCartOutlinedIcon/>
                     </Badge>
                 </MenuItem>
+                </Link>
             </Right>
         </Wrapper>
     </Container>
